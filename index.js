@@ -1,18 +1,19 @@
 (function () {
 	"use strict";
-	var restify = require('restify');
+	let restify = require('restify');
+	const ALLOWED = ["localhost"];
 
-	function respond(req, res, next) {
-	  res.send('hello ' + req.params.name);
-	  next();
+	const respond = function (req, res, next) {
+		res.send('hello ' + req.params.id);
+		next();
 	}
 
-	var server = restify.createServer();
-	server.get('/hello/:name', respond);
-	server.head('/hello/:name', respond);
+	let server = restify.createServer();
+	server.get('/image/:id', respond);
+	server.head('/image/:id', respond);
 
 	server.listen(80, function() {
-	  console.log('%s listening at %s', server.name, server.url);
+		console.log('%s listening at %s', server.name, server.url);
 	});
 }())
 

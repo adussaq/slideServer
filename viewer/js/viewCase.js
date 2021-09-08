@@ -4,8 +4,15 @@
 	// https://dpath.s3.amazonaws.com/1017064.dzi
 
 	// const imgBase = "/server/images/";
-	const imageURL = "http://localhost/image/";
 	// const imgBase = "https://dpath.s3.amazonaws.com/";
+
+	const DEV = false;
+	let imageURL;
+	if (DEV) {
+		imageURL = "http://localhost/image/";
+	} else {
+		imageURL = "http://dpath-web.stanford.edu/image/";
+	}
 
 	const getUrlParameter = function (sParam) {
 	    let sPageURL = window.location.search.substring(1),

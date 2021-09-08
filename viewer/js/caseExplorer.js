@@ -2,7 +2,13 @@
 	'use strict';
 
 	// url to access list of files
-	const listURL = "http://localhost/list/";
+	const DEV = false;
+	let listURL;
+	if (DEV) {
+		listURL = "http://localhost/list/";
+	} else {
+		listURL = "http://dpath-web.stanford.edu/list/";
+	}
 
 	let $slides = $('#deck_holder');
 
